@@ -35,9 +35,15 @@ namespace Pretzel.RedirectFrom
             var content = String.Format(Templates.Redirect, targetUrl);
 
             foreach (var sourceUrl in sourceUrls) {
-                var directory = _fileSystem.Path.Combine(siteContext.OutputFolder, sourceUrl.TrimStart('/').Replace('/', '\\'));
-                _fileSystem.Directory.CreateDirectory(directory);
-                _fileSystem.File.WriteAllText(_fileSystem.Path.Combine(directory, "index.html"), content);
+                try {
+                    var directory = _fileSystem.Path.Combine(siteContext.OutputFolder, sourceUrl.TrimStart('/').Replace('/', '\\'));
+                    if (!_fileSystem.Directory.Exists(directory)) {
+                        _fileSystem.Directory.CreateDirectory(directory);
+                    }
+                    _fileSystem.File.WriteAllText(_fileSystem.Path.Combine(directory, "index.html"), content);
+                } catch (Exception ex) {
+                    Console.WriteLine("Generating redirect for {0} at {1} failed:{2}{3}", post.Id, sourceUrl, Environment.NewLine, ex);
+                }
             }
         }
     }
