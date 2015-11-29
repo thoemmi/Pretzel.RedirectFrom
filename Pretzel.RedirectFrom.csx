@@ -22,6 +22,11 @@ public class RedirectFromTransform : ITransform
                 var sourceUrls = obj as IEnumerable<string>;
                 if (sourceUrls != null) {
                     WriteRedirectFile(siteContext, post, sourceUrls);
+                } else {
+                    var sourceUrl = obj as string;
+                    if (sourceUrl != null) {
+                        WriteRedirectFile(siteContext, post, new [] { sourceUrl });
+                    }
                 }
             }
         }

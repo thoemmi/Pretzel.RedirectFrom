@@ -35,7 +35,7 @@ try {
     
     Set-Content (Join-Path $testSiteFolder "_posts/2015-11-29-test.md") '---
 title: Test Title
-redirect_from: ["old/path/file.aspx"]
+redirect_from: old/path/file.aspx
 ---
 My Content'
     
