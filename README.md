@@ -4,9 +4,11 @@ This is a plugin for [Pretzel](https://github.com/Code52/pretzel), a static site
 
 Sometimes when migrating a site to Pretzel, you may change the structure of your site. This plugin helps to redirect old URLs to new locations.
 
+[![Build status](https://ci.appveyor.com/api/projects/status/40hr6sajlkdcyyda/branch/master?svg=true)](https://ci.appveyor.com/project/thoemmi/pretzel-redirectfrom/branch/master)
+
 ### Installation
 
-Compile the solution `Pretzel.RedirectFrom.sln` and copy `Pretzel.RedirectFrom.dll` to the `_plugin` folder at the root of your site folder.
+Copy `Pretzel.RedirectFrom.csx` to the `_plugin` folder at the root of your site folder.
 
 ### Usage
 
