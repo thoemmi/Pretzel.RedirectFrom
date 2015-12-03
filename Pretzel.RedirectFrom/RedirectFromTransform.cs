@@ -25,6 +25,11 @@ namespace Pretzel.RedirectFrom
                     var sourceUrls = obj as IEnumerable<string>;
                     if (sourceUrls != null) {
                         WriteRedirectFile(siteContext, post, sourceUrls);
+                    } else {
+                        var sourceUrl = obj as string;
+                        if (sourceUrl != null) {
+                            WriteRedirectFile(siteContext, post, new[] { sourceUrl });
+                        }
                     }
                 }
             }
@@ -36,7 +41,7 @@ namespace Pretzel.RedirectFrom
 
             foreach (var sourceUrl in sourceUrls) {
                 try {
-                    var directory = _fileSystem.Path.Combine(siteContext.OutputFolder, sourceUrl.TrimStart('/').Replace('/', '\\'));
+                    var directory = _fileSystem.Path.Combine(siteContext.OutputFolder, sourceUrl.TrimStart('/').Replace('/', _fileSystem.Path.DirectorySeparatorChar));
                     if (!_fileSystem.Directory.Exists(directory)) {
                         _fileSystem.Directory.CreateDirectory(directory);
                     }
