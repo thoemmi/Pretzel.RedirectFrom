@@ -8,7 +8,7 @@ Sometimes when migrating a site to Pretzel, you may change the structure of your
 
 ### Installation
 
-Download the [latest `Pretzel.RedirectFrom.dll`](https://github.com/thoemmi/Pretzel.RedirectFrom/releases) and save it to the `_plugin` folder at the root of your site folder.
+Copy `Pretzel.RedirectFrom.csx` to the `_plugin` folder at the root of your site folder.
 
 ### Usage
 
