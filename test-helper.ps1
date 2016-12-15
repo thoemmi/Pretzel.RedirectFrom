@@ -45,7 +45,7 @@ function Assert-FileContent{
 }
 
 function New-TestSite ($testRoot) {
-    $testFolder = Join-Path $testRoot "test"
+    $testFolder = Join-Path $testRoot ("test-" + [Guid]::NewGuid())
     if (Test-Path $testFolder) {
         Remove-Item $testFolder -Confirm:$false -Force -Recurse
     }
