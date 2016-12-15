@@ -48,14 +48,14 @@ public class RedirectFromTransform : ITransform
             }
         }
     }
-    
+
     private static string RedirectHtmlTemplate = @"<!DOCTYPE html>
 <meta charset=""utf-8"" />
 <title>Redirecting...</title>
-<link rel =""canonical"" href=""{0}"" />
+<link rel=""canonical"" href=""{0}"" />
 <meta http-equiv=""refresh"" content=""0; url={0}"" />
 <h1>Redirecting...</h1>
-<a href =""{0}"">Click here if you are not redirected.</a>
+<a href=""{0}"">Click here if you are not redirected.</a>
 <script>
     location=""{0}""
 </script>";}
